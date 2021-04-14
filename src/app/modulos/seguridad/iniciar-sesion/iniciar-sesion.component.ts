@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-iniciar-sesion',
@@ -6,10 +7,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./iniciar-sesion.component.css']
 })
 export class IniciarSesionComponent implements OnInit {
+  fgValidation: FormGroup= this.fb.group({});
+  constructor(private fb: FormBuilder) { 
 
-  constructor() { }
-
-  ngOnInit(): void {
   }
+  construirFormulario(){
+    this.fgValidation=  this.fb.group({
+      correo:['', Validators.required],
+      clave:['', Validators.required]
 
+    })
+
+  }
+  ngOnInit(): void {
+    this.construirFormulario()
+
+  }
+get obtenerFgV(){
+  return this.fgValidation;
+}
 }
