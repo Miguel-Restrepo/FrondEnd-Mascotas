@@ -24,6 +24,6 @@ export class IniciarSesionComponent implements OnInit {
 
   }
 get obtenerFgV(){
-  return this.fgValidation;
+  return this.fgValidation.controls;
 }
 }

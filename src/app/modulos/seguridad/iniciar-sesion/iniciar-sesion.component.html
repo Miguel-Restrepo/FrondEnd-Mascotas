@@ -9,7 +9,11 @@
                 <i class="material-icons prefix">mail_outline</i>
                 <input formControlName="correo" class="validate" id="email" type="email">
                 <label for="email" data-error="wrong" data-success="right">Email</label>
-                
+                <div class="mensajeValidacion" *ngIf(obtenerFormulario.correo.errors && (obtenerFGV.correo.dirty || obtenerFGV.correo.touched))>
+                    <strong>
+                        Este campo es requerido
+                    </strong>
+                </div>
               </div>
             </div>
             <div class="row">
@@ -17,7 +21,7 @@
                 <i class="material-icons prefix">lock_outline</i>
                 <input formControlName="clave" id="password" type="password">
                 <label for="password">Contraseña</label>
-                <div class="mensajeValidacion" *ngIf(obtenerFormulario.correo.errors && (obtenerFGV.correo.dirty || obtenerFGV.correo.touched))>
+                <div class="mensajeValidacion" *ngIf="(obtenerFormulario.clave.errors && (obtenerFGV.clave.dirty || obtenerFGV.clave.touched))">
                     <strong>
                         Este campo es requerido
                     </strong>
